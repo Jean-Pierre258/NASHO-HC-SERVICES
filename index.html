@@ -1,13 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="rw" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description"
         content="NASHO Health Center - Digital Health Management System & Central Service Gateway. Fast access to patient services, administrative dashboard, and daily reporting.">
+
     <meta name="keywords"
         content="NASHO, Health Center, Rwanda, Kirehe, Digital Health, Healthcare Management, Daily Report, Admin Dashboard">
+
     <meta name="author" content="NASHO Health Center">
     <meta name="theme-color" content="#0d9488">
 
@@ -16,6 +20,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -30,352 +35,1029 @@
     <div class="ambient-glow glow-1" aria-hidden="true"></div>
     <div class="ambient-glow glow-2" aria-hidden="true"></div>
 
-    <!-- TOP UTILITY BAR (Status, Location, Time, Theme, Language) -->
+    <!-- TOP UTILITY BAR -->
     <aside class="top-utility-bar" aria-label="System status bar">
+
         <div class="utility-left">
+
             <div class="status-pill" id="system-status">
                 <span class="pulse-dot" aria-hidden="true"></span>
                 <span id="txt-status">System Operational & Online</span>
             </div>
+
             <div class="location-tag">
                 <span aria-hidden="true">📍</span>
                 <span>Nasho Sector, Kirehe District, Rwanda</span>
             </div>
+
         </div>
 
         <div class="utility-right">
-            <div class="time-display" id="clock-display" title="Current Local Time in Rwanda (CAT)">
+
+            <div class="time-display"
+                id="clock-display"
+                title="Current Local Time in Rwanda (CAT)">
+
                 <span aria-hidden="true">🕒</span>
                 <span id="live-clock">--:--:-- CAT</span>
+
             </div>
 
             <!-- Language Switcher -->
-            <button class="lang-switch-btn" id="langToggleBtn" onclick="toggleLanguage()" aria-label="Change Language">
+            <button
+                class="lang-switch-btn"
+                id="langToggleBtn"
+                onclick="toggleLanguage()"
+                aria-label="Change Language">
+
                 <span aria-hidden="true">🌐</span>
                 <span id="currentLangLabel">Kinyarwanda</span>
+
             </button>
 
-            <!-- Dark / Light Mode Toggle -->
-            <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <!-- Theme Toggle -->
+            <button
+                class="theme-toggle-btn"
+                id="themeToggleBtn"
+                onclick="toggleTheme()"
+                aria-label="Toggle Theme">
+
                 <span id="themeIcon">🌙</span>
                 <span id="themeLabel">Dark</span>
+
             </button>
+
         </div>
+
     </aside>
+
 
     <!-- MAIN HEADER -->
     <header class="main-header" role="banner">
+
         <div class="header-pattern" aria-hidden="true"></div>
+
         <div class="header-content">
-            <div class="logo-badge" aria-hidden="true">🏥</div>
+
+            <div class="logo-badge" aria-hidden="true">
+                🏥
+            </div>
+
             <h1 class="header-title" id="txt-main-title">
                 <span>NASHO Health Center</span>
             </h1>
+
             <p class="header-subtitle" id="txt-main-subtitle">
                 Digital Health Management System
             </p>
+
         </div>
+
     </header>
 
-    <!-- NAVIGATION: BACK, HOME, ADMIN & SEARCH -->
+
+    <!-- NAVIGATION -->
     <nav class="page-navigation" aria-label="Page navigation">
+
         <div class="nav-buttons-group">
-            <!-- Back Button with Referrer Fallback -->
-            <button class="nav-btn" id="btn-back" onclick="goBack()" title="Shortcut: Press 'B'">
+
+            <!-- Back -->
+            <button
+                class="nav-btn"
+                id="btn-back"
+                onclick="goBack()"
+                title="Shortcut: Press 'B'">
+
                 <span aria-hidden="true">←</span>
                 <span id="txt-btn-back">Back</span>
+
             </button>
 
-            <!-- Home Button -->
-            <a class="nav-btn home-btn" id="btn-home" href="https://nasho-health-center.vercel.app/"
+
+            <!-- Home -->
+            <a
+                class="nav-btn home-btn"
+                id="btn-home"
+                href="https://nasho-health-center.vercel.app/"
                 title="Shortcut: Press 'H'">
+
                 <span aria-hidden="true">🏠</span>
                 <span id="txt-btn-home">Home</span>
+
             </a>
 
-            <!-- Admin Direct Access -->
-            <a class="nav-btn admin-nav-btn" href="https://nasho-health-center.vercel.app/admin.html" title="Open Admin Hub">
+
+            <!-- ADMIN DIRECT ACCESS -->
+            <a
+                class="nav-btn admin-nav-btn"
+                id="adminDirectLink"
+                href="https://nasho-health-center.vercel.app/admin.html"
+                title="Open Admin Dashboard">
+
                 <span aria-hidden="true">🛠️</span>
                 <span id="txt-btn-admin">Admin</span>
+
             </a>
+
         </div>
 
-        <!-- Quick Live Filter -->
+
+        <!-- Search -->
         <div class="search-container">
-            <span class="search-icon" aria-hidden="true">🔍</span>
-            <input type="text" class="search-input" id="serviceSearch" placeholder="Search services or portals..."
-                oninput="filterCards()" aria-label="Filter portals and services">
+
+            <span class="search-icon" aria-hidden="true">
+                🔍
+            </span>
+
+            <input
+                type="text"
+                class="search-input"
+                id="serviceSearch"
+                placeholder="Search services or portals..."
+                oninput="filterCards()"
+                aria-label="Filter portals and services">
+
         </div>
+
     </nav>
 
-    <!-- FACILITY SHOWCASE & QUICK STATS -->
-    <section class="showcase-container" aria-label="Health Center Overview">
+
+    <!-- FACILITY SHOWCASE -->
+    <section
+        class="showcase-container"
+        aria-label="Health Center Overview">
+
         <div class="showcase-card">
+
             <div class="showcase-image-wrap">
-                <img src="assets/images/nasho_health_hero.jpg" alt="NASHO Health Center Facility view in Rwanda"
-                    class="showcase-img" onerror="this.style.display='none'">
+
+                <img
+                    src="assets/images/nasho_health_hero.jpg"
+                    alt="NASHO Health Center Facility view in Rwanda"
+                    class="showcase-img"
+                    onerror="this.style.display='none'">
+
                 <div class="showcase-tag">
+
                     <span aria-hidden="true">⭐</span>
-                    <span id="txt-facility-badge">Modern Healthcare Excellence</span>
+
+                    <span id="txt-facility-badge">
+                        Modern Healthcare Excellence
+                    </span>
+
                 </div>
+
             </div>
+
+
             <div class="showcase-details">
-                <div class="showcase-badge" id="txt-showcase-sub">Official Digital Portal</div>
-                <h2 class="showcase-title" id="txt-showcase-title">Excellence in Community Health & Innovation</h2>
-                <p class="showcase-desc" id="txt-showcase-desc">
-                    Connecting patients, medical staff, and administration through seamless digital healthcare
-                    management, daily electronic reporting, and rapid emergency response.
-                </p>
-                <div class="showcase-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label" id="txt-stat-1">Emergency Care</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label" id="txt-stat-2">Digital Reports</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">Kirehe</div>
-                        <div class="stat-label" id="txt-stat-3">Eastern Province</div>
-                    </div>
+
+                <div
+                    class="showcase-badge"
+                    id="txt-showcase-sub">
+
+                    Official Digital Portal
+
                 </div>
+
+                <h2
+                    class="showcase-title"
+                    id="txt-showcase-title">
+
+                    Excellence in Community Health & Innovation
+
+                </h2>
+
+                <p
+                    class="showcase-desc"
+                    id="txt-showcase-desc">
+
+                    Connecting patients, medical staff, and administration
+                    through seamless digital healthcare management,
+                    daily electronic reporting, and rapid emergency response.
+
+                </p>
+
+
+                <div class="showcase-stats">
+
+                    <div class="stat-item">
+
+                        <div class="stat-number">
+                            24/7
+                        </div>
+
+                        <div
+                            class="stat-label"
+                            id="txt-stat-1">
+
+                            Emergency Care
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-item">
+
+                        <div class="stat-number">
+                            100%
+                        </div>
+
+                        <div
+                            class="stat-label"
+                            id="txt-stat-2">
+
+                            Digital Reports
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-item">
+
+                        <div class="stat-number">
+                            Kirehe
+                        </div>
+
+                        <div
+                            class="stat-label"
+                            id="txt-stat-3">
+
+                            Eastern Province
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
+
     </section>
+
 
     <!-- SECTION TITLE -->
     <div class="section-header">
-        <span class="section-tag" id="txt-portal-tag">Gateway Access</span>
-        <h2 class="section-title" id="txt-portal-heading">Select a Service Portal</h2>
-        <p class="section-subtitle" id="txt-portal-subheading">Choose your destination below to access healthcare
-            consultations, administrative tools, or report submissions.</p>
+
+        <span
+            class="section-tag"
+            id="txt-portal-tag">
+
+            Gateway Access
+
+        </span>
+
+        <h2
+            class="section-title"
+            id="txt-portal-heading">
+
+            Select a Service Portal
+
+        </h2>
+
+        <p
+            class="section-subtitle"
+            id="txt-portal-subheading">
+
+            Choose your destination below to access healthcare
+            consultations, administrative tools, or report submissions.
+
+        </p>
+
     </div>
 
-    <!-- MAIN SERVICES CONTAINER (THE 3 CORE LINKS) -->
-    <main class="nav-container" id="main-content">
-        <div class="navigation" id="portalGrid">
 
-            <!-- 1. HEALTH CENTER -->
-            <a class="nav-card health" id="card-health" href="https://nasho-health-center.vercel.app/" target="_blank"
+    <!-- MAIN SERVICES -->
+    <main
+        class="nav-container"
+        id="main-content">
+
+        <div
+            class="navigation"
+            id="portalGrid">
+
+
+            <!-- =====================================================
+                 1. HEALTH CENTER
+            ====================================================== -->
+
+            <a
+                class="nav-card health"
+                id="card-health"
+                href="https://nasho-health-center.vercel.app/"
+                target="_blank"
                 rel="noopener noreferrer"
                 data-keywords="nasho health center patient care appointment clinic doctor medical">
 
                 <div>
+
                     <div class="card-top">
-                        <span class="card-badge" id="badge-health">Patient & Public Portal</span>
-                        <span class="shortcut-key" aria-hidden="true">Key [1]</span>
+
+                        <span
+                            class="card-badge"
+                            id="badge-health">
+
+                            Patient & Public Portal
+
+                        </span>
+
+                        <span
+                            class="shortcut-key"
+                            aria-hidden="true">
+
+                            Key [1]
+
+                        </span>
+
                     </div>
 
-                    <div class="icon-wrap" aria-hidden="true">
+
+                    <div
+                        class="icon-wrap"
+                        aria-hidden="true">
+
                         🏥
+
                     </div>
+
 
                     <div class="card-body">
-                        <h2 id="title-health">NASHO Health Center</h2>
+
+                        <h2 id="title-health">
+                            NASHO Health Center
+                        </h2>
+
                         <p id="desc-health">
                             Visit the main NASHO Health Center website
                         </p>
+
                     </div>
 
-                    <ul class="card-features" aria-label="Portal Highlights">
-                        <li><span class="check-icon">✓</span> <span id="feat-h1">Online Appointment Booking</span></li>
-                        <li><span class="check-icon">✓</span> <span id="feat-h2">Clinical Departments & Schedules</span>
+
+                    <ul
+                        class="card-features"
+                        aria-label="Portal Highlights">
+
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span id="feat-h1">
+                                Online Appointment Booking
+                            </span>
                         </li>
-                        <li><span class="check-icon">✓</span> <span id="feat-h3">Community Health & Patient
-                                Guidance</span></li>
+
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span id="feat-h2">
+                                Clinical Departments & Schedules
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span id="feat-h3">
+                                Community Health & Patient Guidance
+                            </span>
+                        </li>
+
                     </ul>
+
                 </div>
 
-                <div style="margin-top: 24px;">
-                    <button class="card-action-btn" type="button" tabindex="-1">
-                        <span id="btn-text-health">Visit Website</span>
-                        <span class="btn-arrow" aria-hidden="true">→</span>
+
+                <div style="margin-top:24px;">
+
+                    <button
+                        class="card-action-btn"
+                        type="button"
+                        tabindex="-1">
+
+                        <span id="btn-text-health">
+                            Visit Website
+                        </span>
+
+                        <span
+                            class="btn-arrow"
+                            aria-hidden="true">
+
+                            →
+
+                        </span>
+
                     </button>
+
                 </div>
+
             </a>
 
 
-            <!-- 2. ADMIN DASHBOARD -->
-            <a class="nav-card admin" id="card-admin" href="https://nasho-health-center.vercel.app/admin.html"
+
+            <!-- =====================================================
+                 2. ADMIN DASHBOARD
+            ====================================================== -->
+
+            <a
+                class="nav-card admin"
+                id="card-admin"
+                href="https://nasho-health-center.vercel.app/admin.html"
                 data-keywords="admin dashboard management appointments messages system staff control">
 
                 <div>
+
                     <div class="card-top">
-                        <span class="card-badge" id="badge-admin">Administration Hub</span>
-                        <span class="shortcut-key" aria-hidden="true">Key [2]</span>
+
+                        <span
+                            class="card-badge"
+                            id="badge-admin">
+
+                            Administration Hub
+
+                        </span>
+
+                        <span
+                            class="shortcut-key"
+                            aria-hidden="true">
+
+                            Key [2]
+
+                        </span>
+
                     </div>
 
-                    <div class="icon-wrap" aria-hidden="true">
+
+                    <div
+                        class="icon-wrap"
+                        aria-hidden="true">
+
                         🛠️
+
                     </div>
+
 
                     <div class="card-body">
-                        <h2 id="title-admin">Admin Dashboard</h2>
+
+                        <h2 id="title-admin">
+                            Admin Dashboard
+                        </h2>
+
                         <p id="desc-admin">
                             Manage appointments, messages and system information
                         </p>
+
                     </div>
 
-                    <ul class="card-features" aria-label="Portal Highlights">
-                        <li><span class="check-icon">✓</span> <span id="feat-a1">Appointment & Patient Queue
-                                Manager</span></li>
-                        <li><span class="check-icon">✓</span> <span id="feat-a2">Incoming Inquiries & Messages</span>
+
+                    <ul
+                        class="card-features"
+                        aria-label="Portal Highlights">
+
+                        <li>
+
+                            <span class="check-icon">
+                                ✓
+                            </span>
+
+                            <span id="feat-a1">
+                                Appointment & Patient Queue Manager
+                            </span>
+
                         </li>
-                        <li><span class="check-icon">✓</span> <span id="feat-a3">Staff Roster & System
-                                Configuration</span></li>
+
+
+                        <li>
+
+                            <span class="check-icon">
+                                ✓
+                            </span>
+
+                            <span id="feat-a2">
+                                Incoming Inquiries & Messages
+                            </span>
+
+                        </li>
+
+
+                        <li>
+
+                            <span class="check-icon">
+                                ✓
+                            </span>
+
+                            <span id="feat-a3">
+                                Staff Roster & System Configuration
+                            </span>
+
+                        </li>
+
                     </ul>
+
                 </div>
 
-                <div style="margin-top: 24px;">
-                    <button class="card-action-btn" type="button" tabindex="-1">
-                        <span id="btn-text-admin">Open Dashboard</span>
-                        <span class="btn-arrow" aria-hidden="true">→</span>
+
+                <div style="margin-top:24px;">
+
+                    <button
+                        class="card-action-btn"
+                        type="button"
+                        tabindex="-1">
+
+                        <span id="btn-text-admin">
+                            Open Dashboard
+                        </span>
+
+                        <span
+                            class="btn-arrow"
+                            aria-hidden="true">
+
+                            →
+
+                        </span>
+
                     </button>
+
                 </div>
+
             </a>
 
 
-            <!-- 3. DAILY REPORT -->
-            <a class="nav-card report" id="card-report" href="https://nasho-daily-report.vercel.app/" target="_blank"
+
+            <!-- =====================================================
+                 3. DAILY REPORT
+            ====================================================== -->
+
+            <a
+                class="nav-card report"
+                id="card-report"
+                href="https://nasho-daily-report.vercel.app/"
+                target="_blank"
                 rel="noopener noreferrer"
                 data-keywords="daily report submit stats health metrics records monitoring epidemiology">
 
                 <div>
+
                     <div class="card-top">
-                        <span class="card-badge" id="badge-report">Daily Analytics & Log</span>
-                        <span class="shortcut-key" aria-hidden="true">Key [3]</span>
+
+                        <span
+                            class="card-badge"
+                            id="badge-report">
+
+                            Daily Analytics & Log
+
+                        </span>
+
+                        <span
+                            class="shortcut-key"
+                            aria-hidden="true">
+
+                            Key [3]
+
+                        </span>
+
                     </div>
 
-                    <div class="icon-wrap" aria-hidden="true">
+
+                    <div
+                        class="icon-wrap"
+                        aria-hidden="true">
+
                         📋
+
                     </div>
+
 
                     <div class="card-body">
-                        <h2 id="title-report">Daily Report</h2>
+
+                        <h2 id="title-report">
+                            Daily Report
+                        </h2>
+
                         <p id="desc-report">
                             Submit and manage daily health reports
                         </p>
+
                     </div>
 
-                    <ul class="card-features" aria-label="Portal Highlights">
-                        <li><span class="check-icon">✓</span> <span id="feat-r1">Daily Patient Inflow &
-                                Consultations</span></li>
-                        <li><span class="check-icon">✓</span> <span id="feat-r2">Pharmacy & Medical Inventory
-                                Logs</span></li>
-                        <li><span class="check-icon">✓</span> <span id="feat-r3">Departmental Activity
-                                Submissions</span></li>
+
+                    <ul
+                        class="card-features"
+                        aria-label="Portal Highlights">
+
+                        <li>
+
+                            <span class="check-icon">
+                                ✓
+                            </span>
+
+                            <span id="feat-r1">
+                                Daily Patient Inflow & Consultations
+                            </span>
+
+                        </li>
+
+
+                        <li>
+
+                            <span class="check-icon">
+                                ✓
+                            </span>
+
+                            <span id="feat-r2">
+                                Pharmacy & Medical Inventory Logs
+                            </span>
+
+                        </li>
+
+
+                        <li>
+
+                            <span class="check-icon">
+                                ✓
+                            </span>
+
+                            <span id="feat-r3">
+                                Departmental Activity Submissions
+                            </span>
+
+                        </li>
+
                     </ul>
+
                 </div>
 
-                <div style="margin-top: 24px;">
-                    <button class="card-action-btn" type="button" tabindex="-1">
-                        <span id="btn-text-report">Submit Report</span>
-                        <span class="btn-arrow" aria-hidden="true">→</span>
+
+                <div style="margin-top:24px;">
+
+                    <button
+                        class="card-action-btn"
+                        type="button"
+                        tabindex="-1">
+
+                        <span id="btn-text-report">
+                            Submit Report
+                        </span>
+
+                        <span
+                            class="btn-arrow"
+                            aria-hidden="true">
+
+                            →
+
+                        </span>
+
                     </button>
+
                 </div>
+
             </a>
 
-            <!-- Empty Search State -->
-            <div class="no-results" id="noResults">
-                <h3>Nta serivisi ibonetse / No service found</h3>
-                <p>Nyamuneka gerageza andi magambo yo gushakisha. / Please try another search keyword.</p>
+
+
+            <!-- EMPTY SEARCH STATE -->
+
+            <div
+                class="no-results"
+                id="noResults">
+
+                <h3>
+                    Nta serivisi ibonetse / No service found
+                </h3>
+
+                <p>
+                    Nyamuneka gerageza andi magambo yo gushakisha.
+                    / Please try another search keyword.
+                </p>
+
             </div>
 
         </div>
+
     </main>
 
-    <!-- DIRECT EMERGENCY HOTLINE BANNER -->
-    <section class="emergency-banner-wrap" aria-label="Emergency contact">
+
+
+    <!-- =========================================================
+         EMERGENCY BANNER
+    ========================================================== -->
+
+    <section
+        class="emergency-banner-wrap"
+        aria-label="Emergency contact">
+
         <div class="emergency-banner">
+
             <div class="emergency-info">
-                <div class="emergency-pulse-icon" aria-hidden="true">
+
+                <div
+                    class="emergency-pulse-icon"
+                    aria-hidden="true">
+
                     🚨
+
                 </div>
+
+
                 <div class="emergency-text">
-                    <h3 id="txt-emg-title">Ukeneye Ubufasha Byihutirwa? / Need Urgent Assistance?</h3>
-                    <p id="txt-emg-desc">Ambulance, emergency maternity, or urgent medical inquiries are active 24/7.
+
+                    <h3 id="txt-emg-title">
+                        Ukeneye Ubufasha Byihutirwa?
+                        / Need Urgent Assistance?
+                    </h3>
+
+                    <p id="txt-emg-desc">
+
+                        Ambulance, emergency maternity,
+                        or urgent medical inquiries are active 24/7.
+
                     </p>
+
                 </div>
+
             </div>
+
 
             <div class="emergency-actions">
-                <a class="call-primary-btn" id="bannerCallBtn" href="tel:0787126902">
-                    <span aria-hidden="true">📞</span>
-                    <span id="txt-emg-call">Hamagara: 0787126902</span>
+
+                <a
+                    class="call-primary-btn"
+                    id="bannerCallBtn"
+                    href="tel:0787126902">
+
+                    <span aria-hidden="true">
+                        📞
+                    </span>
+
+                    <span id="txt-emg-call">
+                        Hamagara: 0787126902
+                    </span>
+
                 </a>
-                <button class="copy-btn" onclick="copyPhoneNumber('0787126902')" aria-label="Copy phone number">
-                    <span aria-hidden="true">📋</span>
-                    <span id="txt-copy-num">Kopiya Nomero</span>
+
+
+                <button
+                    class="copy-btn"
+                    onclick="copyPhoneNumber('0787126902')"
+                    aria-label="Copy phone number">
+
+                    <span aria-hidden="true">
+                        📋
+                    </span>
+
+                    <span id="txt-copy-num">
+                        Kopiya Nomero
+                    </span>
+
                 </button>
+
             </div>
+
         </div>
+
     </section>
 
-    <!-- FOOTER -->
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
     <footer role="contentinfo">
+
         <div class="footer-inner">
+
+
             <div class="footer-brand">
+
                 <div class="footer-logo">
-                    <span>🏥</span>
-                    <span>NASHO Health Center</span>
+
+                    <span>
+                        🏥
+                    </span>
+
+                    <span>
+                        NASHO Health Center
+                    </span>
+
                 </div>
-                <p class="footer-desc" id="txt-footer-desc">
-                    Dedicated to delivering compassionate, accessible, and high-quality digital health services to the
-                    residents of Nasho and surrounding sectors.
+
+
+                <p
+                    class="footer-desc"
+                    id="txt-footer-desc">
+
+                    Dedicated to delivering compassionate,
+                    accessible, and high-quality digital health
+                    services to the residents of Nasho and surrounding sectors.
+
                 </p>
+
             </div>
 
-            <div class="footer-links-title" id="txt-footer-links-title">
+
+            <div
+                class="footer-links-title"
+                id="txt-footer-links-title">
+
                 Ibyerekezo Byihuse / Quick Access Links
+
             </div>
 
-            <!-- THREE LINKS IN FOOTER -->
+
+            <!-- FOOTER LINKS -->
+
             <div class="footer-links">
-                <a class="footer-link" id="footer-link-health" href="https://nasho-health-center.vercel.app/"
-                    target="_blank" rel="noopener noreferrer">
-                    <span aria-hidden="true">🏥</span>
-                    <span id="txt-footer-health">Health Center</span>
+
+
+                <!-- Health Center -->
+
+                <a
+                    class="footer-link"
+                    id="footer-link-health"
+                    href="https://nasho-health-center.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span aria-hidden="true">
+                        🏥
+                    </span>
+
+                    <span id="txt-footer-health">
+                        Health Center
+                    </span>
+
                 </a>
 
-                <a class="footer-link" id="footer-link-admin" href="admin.html">
-                    <span aria-hidden="true">🛠️</span>
-                    <span id="txt-footer-admin">Admin</span>
+
+                <!-- ADMIN - FIXED FULL URL -->
+
+                <a
+                    class="footer-link"
+                    id="footer-link-admin"
+                    href="https://nasho-health-center.vercel.app/admin.html">
+
+                    <span aria-hidden="true">
+                        🛠️
+                    </span>
+
+                    <span id="txt-footer-admin">
+                        Admin
+                    </span>
+
                 </a>
 
-                <a class="footer-link" id="footer-link-report" href="https://nasho-daily-report.vercel.app/"
-                    target="_blank" rel="noopener noreferrer">
-                    <span aria-hidden="true">📋</span>
-                    <span id="txt-footer-report">Daily Report</span>
+
+                <!-- Daily Report -->
+
+                <a
+                    class="footer-link"
+                    id="footer-link-report"
+                    href="https://nasho-daily-report.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <span aria-hidden="true">
+                        📋
+                    </span>
+
+                    <span id="txt-footer-report">
+                        Daily Report
+                    </span>
+
                 </a>
+
             </div>
 
-            <!-- CALL IN FOOTER -->
+
+            <!-- CALL -->
+
             <div>
-                <a class="call-box" id="footerCallBox" href="tel:+250787126902" title="Direct Phone Call">
-                    <span class="call-icon" aria-hidden="true">📞</span>
-                    <span id="txt-footer-call">Call: +250787126902</span>
+
+                <a
+                    class="call-box"
+                    id="footerCallBox"
+                    href="tel:+250787126902"
+                    title="Direct Phone Call">
+
+                    <span
+                        class="call-icon"
+                        aria-hidden="true">
+
+                        📞
+
+                    </span>
+
+                    <span id="txt-footer-call">
+                        Call: +250787126902
+                    </span>
+
                 </a>
+
             </div>
 
-            <!-- COPYRIGHT & MINISTRY OF HEALTH -->
+
+            <!-- COPYRIGHT -->
+
             <div class="footer-bottom">
-                <div class="copyright" id="txt-copyright">
-                    © 2026 NASHO Health Center. All Rights Reserved.
+
+                <div
+                    class="copyright"
+                    id="txt-copyright">
+
+                    © 2026 NASHO Health Center.
+                    All Rights Reserved.
+
                 </div>
+
+
                 <div class="ministry-badge">
-                    <span>🇷🇼</span>
-                    <span>Republic of Rwanda • Ministry of Health</span>
+
+                    <span>
+                        🇷🇼
+                    </span>
+
+                    <span>
+                        Republic of Rwanda • Ministry of Health
+                    </span>
+
                 </div>
+
             </div>
+
         </div>
+
     </footer>
 
+
     <!-- TOAST NOTIFICATION -->
-    <div class="toast" id="toastNotification" role="alert" aria-live="assertive"></div>
+
+    <div
+        class="toast"
+        id="toastNotification"
+        role="alert"
+        aria-live="assertive">
+    </div>
+
 
     <!-- JavaScript Controller -->
+
     <script src="script.js"></script>
+
+
+    <!-- =========================================================
+         ADMIN LINK SAFETY FALLBACK
+         Ensures every Admin entry goes to the exact URL.
+    ========================================================== -->
+
+    <script>
+
+        const NASHO_ADMIN_URL =
+            "https://nasho-health-center.vercel.app/admin.html";
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const adminLinks = document.querySelectorAll(
+                "#adminDirectLink, #card-admin, #footer-link-admin"
+            );
+
+            adminLinks.forEach(function (link) {
+
+                link.setAttribute(
+                    "href",
+                    NASHO_ADMIN_URL
+                );
+
+            });
+
+        });
+
+
+        /*
+         * Keyboard shortcut:
+         * Press "2" to open Admin Dashboard.
+         */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (
+                event.key === "2" &&
+                !["INPUT", "TEXTAREA"].includes(
+                    document.activeElement.tagName
+                )
+            ) {
+
+                window.location.href =
+                    NASHO_ADMIN_URL;
+
+            }
+
+        });
+
+    </script>
+
 </body>
 
 </html>
+
